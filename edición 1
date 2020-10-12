@@ -20,7 +20,7 @@ namespace BaseDeDatos603
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connection = "datasource=localhost;port=3306;username=root;password=;database=SESALI";
+            string connection = "datasource=localhost;port=3306;username=root;password=;database=jaisbe";
             string query = "SELECT * FROM user";
             MySqlConnection conectionDatabase = new MySqlConnection(connection);
             MySqlCommand databaseCommand = new MySqlCommand(query, conectionDatabase);
