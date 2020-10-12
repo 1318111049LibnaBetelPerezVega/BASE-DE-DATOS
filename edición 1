@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace BaseDeDatos603
+namespace jaisbe
 {
     public partial class Form1 : Form
     {
@@ -165,7 +165,23 @@ namespace BaseDeDatos603
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        }
+         private void button4_Click(object sender, EventArgs e)
         {
+
+        }
+         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         }
     }
