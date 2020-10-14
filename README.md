@@ -13,9 +13,9 @@ using MySql.Data.MySqlClient;
 
 namespace jaisbe1
 {
-    public partial class Form1 : Form
+    public partial class jaisbe : Form
     {
-        public Form1()
+        public jaisbe()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace jaisbe1
         private void Form1_Load(object sender, EventArgs e)
         {
             string connection = "datasource=localhost;port=3306;username=root;password=;database=jaisbe";
-            string query = "SELECT * FROM botones";
+            string query = "SELECT * FROM jaisbe";
             MySqlConnection conectionDatabase = new MySqlConnection(connection);
             MySqlCommand databaseCommand = new MySqlCommand(query, conectionDatabase);
             databaseCommand.CommandTimeout = 60;
@@ -57,8 +57,8 @@ namespace jaisbe1
         }
         private void GuardarUsuario()
         {
-            string connection = "datasource=localhost; port=3306;username=root;password=;database=db";
-            string query = "SELECT * FROM botones";
+            string connection = "datasource=localhost; port=3306;username=root;password=;database=jaisbe";
+            string query = "SELECT * FROM jaisbe";
             MySqlConnection conectionDatabase = new MySqlConnection(connection);
             MySqlCommand databaseCommand = new MySqlCommand(query, conectionDatabase);
             databaseCommand.CommandTimeout = 60;
@@ -91,8 +91,8 @@ namespace jaisbe1
 
         private void BorrarUsuario()
         {
-            string connection = "datasource=localhost;port=3306;username=root;password=;database=db";
-            string query = "DELETE FROM botones WHERE id='" + textBox4.Text + "' ";
+            string connection = "datasource=localhost;port=3306;username=root;password=;database=jaisbe";
+            string query = "DELETE FROM jaisbe WHERE id='" + textBox5.Text + "' ";
             MySqlConnection conectionDatabase = new MySqlConnection(connection);
             MySqlCommand databaseCommand = new MySqlCommand(query, conectionDatabase);
             databaseCommand.CommandTimeout = 60;
@@ -101,7 +101,7 @@ namespace jaisbe1
             {
                 conectionDatabase.Open();
                 MySqlDataReader reader1 = databaseCommand.ExecuteReader();
-                MessageBox.Show("Lograste borrar el dato, eres un Crack");
+                MessageBox.Show("Lograste borrar el dato ");
                 conectionDatabase.Close();
             }
             catch (Exception ex)
@@ -112,8 +112,8 @@ namespace jaisbe1
 
         private void Modificar()
         {
-            string connection = "datasource=localhost;port=3306;username=root;password=;database=db";
-            string query = "UPDATE botones SET first_name='" + textBox1.Text + "',last_name='" + textBox2.Text + "',address='" + textBox3.Text + "' WHERE id='" + textBox4.Text + "' ";
+            string connection = "datasource=localhost;port=3306;username=root;password=;database=jaisbe";
+            string query = "UPDATE jaisbe SET nombre='" + textBox1.Text + "',apellido_paterno='" + textBox2.Text + "',apellido_materno='" + textBox3.Text + "',direccion='" + textBox4.Text + "'  id='" + textBox5.Text + "' ";
             MySqlConnection conectionDatabase = new MySqlConnection(connection);
             MySqlCommand databaseCommand = new MySqlCommand(query, conectionDatabase);
             databaseCommand.CommandTimeout = 60;
@@ -133,8 +133,8 @@ namespace jaisbe1
         }
         private void BuscarUsuario()
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=db;";
-            string query = "SELECT * FROM botones where id='" + textBox4.Text + "' ";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=jaisbe;";
+            string query = "SELECT * FROM jaisbe where id='" + textBox5.Text + "' ";
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -177,8 +177,8 @@ namespace jaisbe1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=db;";
-            string query = "SELECT * FROM botones";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=jaisbe;";
+            string query = "SELECT * FROM jaisbe";
             MySqlCommand mySqlCommand = new MySqlCommand(query, new MySqlConnection(Connect));
             mySqlCommand.CommandTimeout = 60;
             MySqlDataReader reader;
@@ -222,15 +222,15 @@ namespace jaisbe1
         {// Guardar Dato
             if (textBox1.Text == "")
             {
-                MessageBox.Show("No tienes nombre");
+                MessageBox.Show("Te falto nombre");
             }
             else if (textBox2.Text == "")
             {
-                MessageBox.Show("No tienes direccion");
+                MessageBox.Show("Te falto direccion");
             }
             else if (textBox3.Text == "")
             {
-                MessageBox.Show("No pusiste apellido bro");
+                MessageBox.Show("Te falto poner apellido");
             }
             else
             {
@@ -247,34 +247,34 @@ namespace jaisbe1
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e)
         {//Actualizar
             MostrarUsuario();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {//buscar
             BuscarUsuario();
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {//modificar
             Modificar();
         }
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox9_TextChanged(object sender, EventArgs e)
+        {
+            GuardarUsuario();
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void textBox10_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
             BorrarUsuario();
         }
