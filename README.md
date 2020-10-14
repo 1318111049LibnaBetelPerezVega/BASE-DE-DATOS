@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace BaseDeDatos603
+namespace jaisbe
 {
     public partial class Form1 : Form
     {
@@ -22,7 +22,7 @@ namespace BaseDeDatos603
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connection = "datasource=localhost;port=3306;username=root;password=;database=sofia";
+            string connection = "datasource=localhost;port=3306;username=root;password=;database=jaisbe";
             string query = "SELECT * FROM user";
             MySqlConnection conectionDatabase = new MySqlConnection(connection);
             MySqlCommand databaseCommand = new MySqlCommand(query, conectionDatabase);
@@ -69,7 +69,7 @@ namespace BaseDeDatos603
             {
                 conectionDatabase.Open();
                 MySqlDataReader reader1 = databaseCommand.ExecuteReader();
-                MessageBox.Show("Lograste Guardar el dato, eres un Crack");
+                MessageBox.Show("Lograste Guardar el dato, eres un campeon");
                 conectionDatabase.Close();
             }
             catch (Exception ex)
@@ -79,7 +79,7 @@ namespace BaseDeDatos603
 
             private void EliminarUsuario()
             {
-                string connection = "datasource=localhost;port=3306;username=root;password=;database=sofia";
+                string connection = "datasource=localhost;port=3306;username=root;password=;database=jaisbe";
                 string query = "SELECT * FROM user";
                 MySqlConnection databaseConnection = new MySqlConnection(Connect);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
